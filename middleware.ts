@@ -62,6 +62,13 @@ export const config = {
      * - .mp4, .avi, .mov, .wmv, .flv (video files)
      * Feel free to modify this pattern to include more paths.
      */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|css|js|json|md|mdx|pdf|doc|docx|xls|xlsx|ppt|pptx|zip|tar|gz|rar|mp3|wav|ogg|flac|mp4|avi|mov|wmv|flv)$|api/.*|fonts/.*|sitemap.xml|robots.txt|manifest.json|\\.well-known/.*).*)'
+ {
+      source:
+        '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|css|js|json|md|mdx|pdf|doc|docx|xls|xlsx|ppt|pptx|zip|tar|gz|rar|mp3|wav|ogg|flac|mp4|avi|mov|wmv|flv)$|api/.*|fonts/.*|sitemap.xml|robots.txt|manifest.json|manifest.webmanifest|\\.well-known/.*).*)',
+      missing: [
+        { type: 'header', key: 'next-router-prefetch' },
+        { type: 'header', key: 'purpose', value: 'prefetch' }
+      ]
+    }
   ]
 };
